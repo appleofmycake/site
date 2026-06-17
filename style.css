@@ -508,3 +508,9 @@ header nav .btn { font-size: calc(var(--fs-sm) * 0.95); }
 .blog-card h2 { font-size: var(--fs-xl); }
 .blog-card h2 a { text-decoration: none; }
 .blog-card h2 a:hover { text-decoration: underline; }
+
+.error-page {
+  text-align: center;
+  padding-block: clamp(4rem, 10vw, 8rem);
+  max-width: var(--content-width);
+}
