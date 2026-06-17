@@ -11,24 +11,26 @@ Static site migration from WordPress to GitHub Pages, preserving the original lo
 
 ## Technical
 - **Theme**: Stoic (child of Twenty Twenty-Five) at `wp-content/themes/stoic/theme.json`
-- **Stack**: clean semantic HTML + hand-crafted CSS, hosted on GitHub Pages (`site` branch)
+- **Stack**: Jinja templates (src/) + hand-crafted CSS, built via `uv run build.py`, hosted on GitHub Pages
+- **Branches**: `main`=empty, `src`=templates+build, `site`=rendered output
 - **CSS approach**: hand-written CSS from theme.json design tokens (no WP CSS reuse, no PurgeCSS)
-- **Fonts**: Mulish (Heading + Body) + Libre Baskerville (Standout/quotes), local in `/assets/`
+- **Fonts**: Mulish (Heading + Body) + Libre Baskerville (quotes only), local in `/assets/`
 - **URLs**: directory-based (`/blog/`, `/blog/merveilleux-vaisseaux/`, `/politique-de-confidentialite/`)
-- **SEO**: JSON-LD schema, OG/twitter meta, sitemap.xml (updated for static paths)
+- **SEO**: JSON-LD schema, OG/twitter meta, sitemap.xml, GA tag `G-XW10PLNNB1`
 - **Copyright**: 2026
-- **Layout**: max-width 1200px, content-width 800px, breakpoint 840px, mobile max-width 720px
+- **Layout**: max-width 1200px, content-width 800px, breakpoint 840px
 
 ## Pages
-| Page | File |
+| Page | Template |
 |---|---|
-| Homepage | `index.html` |
-| Blog listing | `blog/index.html` |
-| Blog article | `blog/merveilleux-vaisseaux/index.html` |
-| Privacy | `politique-de-confidentialite/index.html` |
+| Homepage | `src/index.html` |
+| Blog listing | `src/blog/index.html` |
+| Blog article | `src/blog/merveilleux-vaisseaux/index.html` |
+| Privacy | `src/politique-de-confidentialite/index.html` |
+| Base template | `src/_base.html` (shared header, footer, GA, nav) |
 
 ## Assets
-- `assets/logo.png` (20KB)
+- `assets/logo.png` (20KB, also used as favicon)
 - `assets/portrait.webp` (76KB)
 - `assets/Mulish-Variable.ttf` (208KB)
 - `assets/LibreBaskerville-{Regular,Bold,Italic}.ttf` (~471KB total)

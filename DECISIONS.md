@@ -20,3 +20,15 @@
 - **Decision**: `text-wrap: pretty` on body to prevent orphan words globally
 - **Decision**: scrape and include the blog article (blog/merveilleux-vaisseaux/) too, 4 pages total
 - **Decision**: repo will be squashed to a single clean commit before final deploy (remove STATUS/DECISIONS/REQUIREMENTS/HANDOFF.md)
+
+## 2026-06-17T09:00:00Z
+- **Decision**: switch to Jinja build system instead of flat HTML. Reason: reduces context per page, single source of truth for header/footer/GA/contact, worth it even for 4 pages.
+- **Decision**: three-branch strategy: `main`=empty (clean default GitHub view), `src`=templates+build (working branch), `site`=rendered output only (GitHub Pages serves from here). Supersedes earlier "squash to single commit" plan.
+- **Decision**: GA tag `G-XW10PLNNB1` added to base template (was missing from static site)
+- **Decision**: favicon reuses `assets/logo.png` (same PNG the WP site uses), no separate favicon file
+- **Decision**: blog link added to header nav (between FAQ and Contact)
+- **Decision**: `--color-text-dim-warm: #7a7a6f` for readable dim text on cream backgrounds
+- **Decision**: footer copyright dimmed (`#8a8b7a`) with subtler border separator
+- **Decision**: content pages (article, blog, privacy) use `content-width` (800px) for all content, not `max-width` (1200px)
+- **Decision**: mobile nav top-aligned (not centered), smaller font (`fs-xl` instead of `fs-2xl`)
+- **Decision**: button font-size increased 1.2x globally, nav button keeps original small size
