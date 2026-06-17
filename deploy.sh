@@ -16,6 +16,9 @@ find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name 'CLAUDE.md' -exec rm -rf {
 cp -a "$TMPDIR"/. .
 rm -rf "$TMPDIR"
 
+# Ensure CLAUDE.md stays ignored on site branch
+echo "CLAUDE.md" > .gitignore
+
 git add -A
 git commit -m "deploy: $(date +%Y-%m-%dT%H:%M:%S)" || echo "Nothing to deploy"
 
